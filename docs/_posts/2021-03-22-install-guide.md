@@ -87,6 +87,6 @@ Step 2 takes the token and sends it to the server. The server will then use this
 If you have any questions, suggestions or concerns, feel free to reach out to us via the support e-mail listed in the Unreal Engine marketplace page or the Support button in the Plugins window.
 
 [github-server-releases]: https://github.com/Green-Forest-Games/patreon-info-server/releases
-[example-project]: {{site.url}}/docs/files/PatreonInfoExample_5.zip
+[example-project]: {{site.url}}/patreon-info-server/files/PatreonInfoExample_5.zip
 [patreon-register-client]: https://docs.patreon.com/#clients-and-api-keys
 [patreon-campaign-id]: https://www.patreondevelopers.com/t/campaign-id-place/68
