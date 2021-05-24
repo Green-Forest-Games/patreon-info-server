@@ -155,15 +155,15 @@ foreach (PATREON_BLACKLIST as $list_id) {
 
 // Patreon support status and tier.
 if (property_exists($user_info, 'included')) {
-	foreach ($user_info->included as $include) {
-		if ($include->type == "member") {
-			$test_id = $include->relationships->campaign->data->id;
+	foreach ($user_info->included as $main_include) {
+		if ($main_include->type == "member") {
+			$test_id = $main_include->relationships->campaign->data->id;
 			if ($test_id == $inputData->campaign_id) {
-				$returnData['info']->patron_status = $include->attributes->patron_status;
-				$returnData['info']->last_charge_date = $include->attributes->last_charge_date;
-				$returnData['info']->last_charge_status = $include->attributes->last_charge_status;
+				$returnData['info']->patron_status = $main_include->attributes->patron_status;
+				$returnData['info']->last_charge_date = $main_include->attributes->last_charge_date;
+				$returnData['info']->last_charge_status = $main_include->attributes->last_charge_status;
 
-				foreach ($include->relationships->currently_entitled_tiers->data as $tier_meta) {					
+				foreach ($main_include->relationships->currently_entitled_tiers->data as $tier_meta) {					
 					foreach ($user_info->included as $include) {
 						if ($include->type == "tier" && $include->id == $tier_meta->id) {
 							$tier = new stdClass();
@@ -177,7 +177,7 @@ if (property_exists($user_info, 'included')) {
 					}
 				}
 				
-				foreach ($include->relationships->pledge_history->data as $pledge_meta) {
+				foreach ($main_include->relationships->pledge_history->data as $pledge_meta) {
 					foreach ($user_info->included as $include) {
 						if ($include->type == "pledge-event" && $include->id == $pledge_meta->id) {
 							array_push($returnData['info']->pledge_history, $include->attributes);
