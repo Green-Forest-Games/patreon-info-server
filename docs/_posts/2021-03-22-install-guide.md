@@ -1,17 +1,11 @@
 ---
 layout: post
-title:  "Install Guide for Patreon Info"
+title:  "Patreon Info Installation Guide"
 date:   2021-03-22 20:00:00 +0100
-categories: patreon-info
+permalink: install-guide-legacy
 ---
-# Introduction
-Patreon Info is a code plugin for Unreal Engine 4 which allows you to obtain Patreon information from your user, such as their profile and pledge info. This allows you to:
-
-* Display patron user information in-game.
-* Grant access to exclusive features or bonuses to supporters.
-* And much more!
-
-**IMPORTANT:** Before purchasing the plugin, make sure you read the prerequisites section below!
+This is the install guide for the `0.9.1` version of Patreon Info. The `1.0` version is in development.
+If you are using the plugin from the **Unreal Marketplace**, this is the guide you should follow.
 
 # Prerequisites
 In order to use this plugin, you **must** have a web server that can execute PHP code. This server will be running code that handles communications between your game/project and the Patreon servers.
