@@ -1,19 +1,19 @@
 ---
 layout: post
-title:  "Patreon Info Installation Guide"
+title:  "Legacy Installation Guide"
 date:   2021-03-22 20:00:00 +0100
 permalink: install-guide-legacy
 ---
-This is the install guide for the `0.9.1` version of Patreon Info. The `1.0` version is in development.
-If you are using the plugin from the **Unreal Marketplace**, this is the guide you should follow.
+This is the installation guide for **legacy** Patreon Info (`0.9.1` and older). 
+For installing Patreon Info `1.0` and newer, [go here]({{ site.url }}/patreon-info-server/install-guide-1_0).
 
-# Prerequisites
+## Prerequisites
 In order to use this plugin, you **must** have a web server that can execute PHP code. This server will be running code that handles communications between your game/project and the Patreon servers.
 The server code is available free of charge, you are free to set that up before buying the Unreal Engine plugin.
 Check the engine compatibility on the store page before buying the plugin.
 An example project is provided below, but you should set up your server below first.
 
-# Server set-up
+## Server set-up
 This section will run you through the installation and set-up for the server code. If you get stuck during the set-up process, feel free to send us an e-mail at the support e-mail listed in the Unreal Engine marketplace store page.
 
 ## Step 1: Download the server code
@@ -50,7 +50,7 @@ This section will run you through the installation and set-up for the server cod
   * You should now see a Patreon permission screen.
   * If you accept, you should see a simple success message.
 
-# Example project
+## Example project
 Now that you have set up your server, you can go ahead and see how the plugin works in a provided example project.
 
 1. Purchase and install the plugin to your engine if you haven't already done so.
@@ -68,16 +68,16 @@ Now that you have set up your server, you can go ahead and see how the plugin wo
 5. Open the `ExampleMap`, hit `Play` and interact with the `UI`.
 6. Open the `ExampleActor` for an example blueprint implementation.
 
-# How it works
+## How it works
 The plugin works in two main steps: Step 1 is to obtain a Patreon token (used for getting the actual information later), the user must give permission via a browser in order to generate the token. This plugin used the built-in web browser functionality to spawn a browser inside your Unreal project for an optimal user experience. Once step 1 completes successfully, the token is returned to you and should be saved to disk or stored in a variable. If you later load the token from disk, step 1 can be skipped entirely until the token expires.
 
 Step 2 takes the token and sends it to the server. The server will then use this token to talk with the Patreon API and return user information back to your UE4 game/project.
 
-# Limitations
+## Limitations
 * If the user has logged in for the first time with 2-factor authentication enabled, the user needs to verify via e-mail. The verification link in the e-mail might open a different browser. In order to continue in-game, the built-in browser should be closed and log-in procedure should be retried (which will succeed after verification).
 * Logging into Patreon with Google or Facebook does not work in the built-in browser widget. Log in using your e-mail instead.
 
-# Questions
+## Questions
 If you have any questions, suggestions or concerns, feel free to reach out to us via the support e-mail listed in the Unreal Engine marketplace page or the Support button in the Plugins window.
 
 [github-server-releases]: https://github.com/Green-Forest-Games/patreon-info-server/releases
