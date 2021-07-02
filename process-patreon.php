@@ -3,7 +3,6 @@ require_once('functions.php');
 require_once('settings.php');
 
 require_once("vendor/patreon/patreon/src/OAuth.php");
-
 require_once("vendor/firebase/php-jwt/src/JWT.php");
 
 use Patreon\OAuth;
@@ -24,10 +23,11 @@ if (isset($tokens['error'])) {
 
 // Encrypt data
 $decrypted_data = implode(",", array(
-    "access_token" => $tokens['access_token'],
-    "expires_at" => date("Y-m-d H:i:s", time() + $tokens['expires_in']),
-    "refresh_token" => $tokens['refresh_token'],
-    "ip" => $_SERVER['REMOTE_ADDR']
+    'access_token'  => $tokens['access_token'],
+    'expires_at'    => date("Y-m-d H:i:s", time() + $tokens['expires_in']),
+    'refresh_token' => $tokens['refresh_token'],
+    'ip'            => $_SERVER['REMOTE_ADDR'],
+    'user_id'       => $_GET['user_id']
 ));
 $encrypted_data = Encrypt($decrypted_data);
 
