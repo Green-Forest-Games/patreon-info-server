@@ -27,7 +27,7 @@ $decrypted_data = implode(",", array(
     'expires_at'    => date("Y-m-d H:i:s", time() + $tokens['expires_in']),
     'refresh_token' => $tokens['refresh_token'],
     'ip'            => $_SERVER['REMOTE_ADDR'],
-    'user_id'       => $_GET['state']
+    'user_id'       => $_GET['state'] == 'None' ? '' : $_GET['state']
 ));
 $encrypted_data = Encrypt($decrypted_data);
 
