@@ -4,6 +4,6 @@
 
 layout: home
 ---
-**Patreon Info** is an third-party integration of the Patreon API for Unreal Engine 4. It allows you to add patron-exclusive features to your UE4 projects.
+**Patreon Info** is a code plugin for integrating Patreon benefits in your Unreal Engine 4 and 5 projects.
 
-**NOTE: The Unreal Marketplace currently uses version `1.0.1`, please follow [this tutorial]({{ site.url }}/patreon-info-server/install-guide-1_0) for getting started.**
+Links: [Marketplace](https://www.unrealengine.com/marketplace/en-US/product/patreon-info) - [Source Code](https://github.com/Green-Forest-Games/patreon-info-server)
