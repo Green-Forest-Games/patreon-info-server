@@ -28,6 +28,7 @@ $returnData['info']->blacklisted = false;
 $returnData['info']->last_charge_date = "";
 $returnData['info']->last_charge_status = "";
 $returnData['info']->pledge_history = array();
+$returnData['info']->campaign_lifetime_support_cents = 0;
 
 function ReturnData()
 {
@@ -131,7 +132,7 @@ $api_client->api_return_format = 'object';
 
 $user_info = $api_client->get_data('identity?include=memberships,memberships.campaign,memberships.currently_entitled_tiers,memberships.pledge_history' .
 	'&fields' . urlencode('[user]')   		. '=first_name,last_name,full_name,image_url' .
-	'&fields' . urlencode('[member]') 		. '=patron_status,last_charge_date,last_charge_status' .
+	'&fields' . urlencode('[member]') 		. '=patron_status,last_charge_date,last_charge_status,campaign_lifetime_support_cents' .
 	'&fields' . urlencode('[tier]')   		. '=amount_cents,description,title,image_url' .
 	'&fields' . urlencode('[pledge-event]')	. '=date,type,payment_status,tier_title');
 
@@ -172,6 +173,7 @@ if (property_exists($user_info, 'included')) {
 				$returnData['info']->patron_status = $main_include->attributes->patron_status;
 				$returnData['info']->last_charge_date = $main_include->attributes->last_charge_date;
 				$returnData['info']->last_charge_status = $main_include->attributes->last_charge_status;
+				$returnData['info']->campaign_lifetime_support_cents = $main_include->attributes->campaign_lifetime_support_cents;
 
 				foreach ($main_include->relationships->currently_entitled_tiers->data as $tier_meta) {
 					foreach ($user_info->included as $include) {
