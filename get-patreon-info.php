@@ -9,10 +9,12 @@ require_once("vendor/firebase/php-jwt/src/BeforeValidException.php");
 require_once("vendor/firebase/php-jwt/src/ExpiredException.php");
 require_once("vendor/firebase/php-jwt/src/SignatureInvalidException.php");
 require_once("vendor/firebase/php-jwt/src/JWT.php");
+require_once("vendor/firebase/php-jwt/src/Key.php");
 
 use Patreon\API;
 use Patreon\OAuth;
-use \Firebase\JWT\JWT;
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
 
 header("Content-Type: application/json; charset=UTF-8");
 $returnData = array('errors' => array(), 'expired' => false, 'info' => new stdClass());
@@ -76,7 +78,7 @@ $encoded_jwt = $inputData->userjwt;
 $decoded_jwt = null;
 try {
 	$returnData['expired'] = false;
-	$decoded_jwt = JWT::decode($encoded_jwt, JWT_KEY, array('HS256'));
+	$decoded_jwt = JWT::decode($encoded_jwt, new Key(JWT_KEY, 'HS256'));
 } catch (\Firebase\JWT\ExpiredException $e) {
 	$returnData['expired'] = true;
 	Fatal('Expired Token');
