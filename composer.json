@@ -1,8 +1,8 @@
 {
     "name": "green-forest-games/patreon-info-server",
-    "description": "Server code for \"Patreon Info\" plugin for UE4 projects.",
+    "description": "Server code for \"Patreon Info\" plugin for Unreal projects.",
     "require": {
-        "firebase/php-jwt": "5.*",
+        "firebase/php-jwt": "6.*",
         "patreon/patreon": "1.*"
     }
 }

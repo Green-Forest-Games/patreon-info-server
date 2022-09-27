@@ -6,7 +6,7 @@ require_once("vendor/patreon/patreon/src/OAuth.php");
 require_once("vendor/firebase/php-jwt/src/JWT.php");
 
 use Patreon\OAuth;
-use \Firebase\JWT\JWT;
+use Firebase\JWT\JWT;
 
 // Validate if user gave permission.
 if (empty($_GET['code'])) {
@@ -42,7 +42,7 @@ $decoded_jwt = array(
         "encrypted" => base64_encode($encrypted_data)
     )
 );
-$encoded_jwt = JWT::encode($decoded_jwt, JWT_KEY);
+$encoded_jwt = JWT::encode($decoded_jwt, JWT_KEY, 'HS256');
 ?>
 
 <!DOCTYPE html>
